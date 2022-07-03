@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.brand-name {
+  color: rgb(217, 4, 4);
+  font-size: 1.3rem;
+  font-family: 'Arima', cursive;
+  font-weight: 800;
+}
+
+.custom-navbar {
+  margin-bottom: 3vh;
+}
+
+.news-headline {
+  font-family: 'Gulzar', serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.news-content {
+  font-family: 'Gentium Book Plus', serif;
+}

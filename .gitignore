@@ -1,0 +1,5 @@
+quick_read/__pycache__
+news_section/__pycache__
+db.sqlite3
+quick_read/settings.py
+news_section/migrations/__pycache__
