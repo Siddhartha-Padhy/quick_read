@@ -3,3 +3,4 @@ news_section/__pycache__
 db.sqlite3
 quick_read/settings.py
 news_section/migrations/__pycache__
+secret_keys.py
