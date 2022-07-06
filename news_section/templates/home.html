@@ -1,16 +1,30 @@
 {% extends 'base.html' %} {% block content %}
 <div class="card-columns">
   {% for headline in headlines %}
-  <div class="card">
+  <div class="card shadow p-2 mb-3">
     <img class="card-img-top" alt="Card image cap" src="{{headline.image}}" />
     <div class="card-body">
-      <h5 class="card-title news-headline">{{headline.title}}</h5>
+      <div class="d-flex">
+        <h5 class="card-title news-headline">{{headline.title}}</h5>
+        <!-- <span id="star">
+          <i
+            class="fa fa-star-o"
+            id="emptyStar"
+            onclick="toggleStar()"
+            aria-hidden="true"
+            style="display: block;"
+          ></i>
+        </span> -->
+      </div>
       <p class="card-text news-content">
         {{headline.content}}
       </p>
       <p class="card-text">
         <small class="text-muted">Published {{headline.publishedAt}}</small>
+        <br />
+        <small class="text-muted">Source: {{headline.source.name}}</small>
       </p>
+      <a class="btn btn-info" href="{{headline.url}}">Read More</a>
     </div>
   </div>
   {% endfor %}

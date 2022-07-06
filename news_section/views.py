@@ -8,6 +8,11 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from news_section.util import *
 
+@csrf_exempt
 def home(request):
-    headlines = get_headlines()
+    if(request.method == "POST"):
+        query = str(request.POST.get('query'))
+        headlines = get_news(keyword=query)
+    else:
+        headlines = get_headlines()
     return render(request, 'home.html', {'headlines':headlines})
