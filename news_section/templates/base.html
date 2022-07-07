@@ -53,19 +53,29 @@
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
+          <li class="nav-item {% if 'home' in active %}active{% endif %}">
             <a class="nav-link" href="#">
-              Home
+              <i class="fa fa-home" aria-hidden="true"></i>
+              &nbsp;Home
+            </a>
+          </li>
+          <li class="nav-item {% if 'saved' in active %}active{% endif %}">
+            <a class="nav-link" href="#">
+              <i class="fa fa-bookmark" aria-hidden="true"></i>
+              &nbsp;Saved News
+            </a>
+          </li>
+          <li class="nav-item {% if 'profile' in active %}active{% endif %}">
+            <a class="nav-link" href="{% url 'profile' %}">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              &nbsp;Profile
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Saved News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              &nbsp;Logout
+            </a>
           </li>
         </ul>
         {% csrf_token %}

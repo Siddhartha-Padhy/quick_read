@@ -15,4 +15,12 @@ def home(request):
         headlines = get_news(keyword=query)
     else:
         headlines = get_headlines()
-    return render(request, 'home.html', {'headlines':headlines})
+    return render(request, 'home.html', {'headlines':headlines, 'active':'home'})
+
+def profile(request):
+    user_data = {
+        'name': 'Steven Smith',
+        'country': 'India',
+        'lang': 'English'
+    }
+    return render(request, 'profile.html', {'user': user_data, 'active': 'profile'})

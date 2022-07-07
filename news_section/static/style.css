@@ -23,3 +23,38 @@
 .news-content {
   font-family: 'Gentium Book Plus', serif;
 }
+
+.user-img {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 15px;
+  border: 4px solid gold;
+  padding: 3px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .user-data {
+    margin-left: 10vw;
+    font-family: 'Gulzar', serif;
+  }
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  .user-card {
+    align-items: center;
+  }
+  .user-data {
+    margin-top: 3vh;
+    font-family: 'Gulzar', serif;
+    align-items: center;
+  }
+}
