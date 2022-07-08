@@ -3,6 +3,58 @@
   padding: 0;
 }
 
+.main-text {
+  color: #ffffff;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 100%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  text-align: center;
+}
+
+.logo img {
+  width: 10vh;
+  height: 10vh;
+  margin: 4px 4px;
+}
+
+.logo h3 {
+  color: #228b22;
+}
+
+.flex-style {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-card {
+  margin-top: 1%;
+  color: black;
+  max-width: 100%;
+}
+
+.signin-card input {
+  margin: 2% 2%;
+}
+
+.signin-card select {
+  margin: 2% 2%;
+}
+
+@media (min-width: 900px) {
+  .flex-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .signin-card {
+    margin-top: 1%;
+    color: black;
+    left: 25vw;
+  }
+}
+
 .brand-name {
   color: rgb(217, 4, 4);
   font-size: 1.3rem;

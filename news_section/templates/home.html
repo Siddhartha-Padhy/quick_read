@@ -6,15 +6,6 @@
     <div class="card-body">
       <div class="d-flex">
         <h5 class="card-title news-headline">{{headline.title}}</h5>
-        <!-- <span id="star">
-          <i
-            class="fa fa-star-o"
-            id="emptyStar"
-            onclick="toggleStar()"
-            aria-hidden="true"
-            style="display: block;"
-          ></i>
-        </span> -->
       </div>
       <p class="card-text news-content">
         {{headline.content}}
@@ -24,7 +15,10 @@
         <br />
         <small class="text-muted">Source: {{headline.source.name}}</small>
       </p>
-      <a class="btn btn-info" href="{{headline.url}}">Read More</a>
+      <div class="d-flex" style="justify-content: space-between;">
+        <a class="btn btn-info" href="{{headline.url}}">Read More</a>
+        <a class="btn btn-success">Save</a>
+      </div>
     </div>
   </div>
   {% endfor %}

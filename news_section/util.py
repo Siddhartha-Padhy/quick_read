@@ -19,3 +19,9 @@ def get_headlines(lang='en',country='in'):
     data = data.json()['articles']
     data = format_news(data)
     return data
+
+def validate_sign_in(username, password):
+    pass
+
+def validate_sign_up(username, password, lang):
+    pass

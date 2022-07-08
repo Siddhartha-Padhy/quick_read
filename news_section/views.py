@@ -9,6 +9,28 @@ from django.http import JsonResponse
 from news_section.util import *
 
 @csrf_exempt
+def index_page(request):
+    error = None
+    if request.method == "POST":
+        username = str(request.POST.get("username"))
+        password = str(request.POST.get("password"))
+        if request.POST['sign'] == 'sign-in':
+            try:
+                validate_sign_in(username,password)
+                return redirect('home')
+            except Exception as e:
+                print('Error: ',e)
+                error = 'Invalid Credentials'
+    
+        elif request.POST['sign'] == 'sign-up':
+            try:
+                validate_sign_up(username,password)
+                return redirect('home',user=username)
+            except Exception:
+                error = 'Something went wrong!'
+    return render(request, 'index.html', {'error':error})
+
+@csrf_exempt
 def home(request):
     if(request.method == "POST"):
         query = str(request.POST.get('query'))
