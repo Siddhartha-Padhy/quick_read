@@ -6,6 +6,22 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from news_section.util import *
 
+COUNTRY = {
+    'in': 'India',
+    'us': 'United States',
+    'ca': 'Canada',
+    'sg': 'Singapore',
+    'jp': 'Japan'
+}
+
+LANGUAGE = {
+    'en': 'English',
+    'hi': 'Hindi',
+    'ta': 'Tamil',
+    'te': 'Telegu',
+    'ja': 'Japanese'
+}
+
 #Sign-in and log-in page
 @csrf_exempt
 def index_page(request):
@@ -48,7 +64,7 @@ def home(request):
     else:
         headlines = get_headlines()
 
-    return render(request, 'home.html', {'headlines':headlines, 'active':'home'})
+    return render(request, 'home.html', {'headlines':headlines, 'active':'home', 'username': str(request.user.username)})
 
 @login_required
 def profile(request):
@@ -58,8 +74,8 @@ def profile(request):
     
     user_data = {
         'username': username,
-        'country': country,
-        'lang': lang
+        'country': COUNTRY[country],
+        'lang': LANGUAGE[lang]
     }
 
-    return render(request, 'profile.html', {'user': user_data, 'active': 'profile'})
+    return render(request, 'profile.html', {'user': user_data, 'active': 'profile', 'username': str(request.user.username)})

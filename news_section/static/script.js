@@ -1,42 +1,44 @@
-function saveArticle(ind) {
+function saveArticle(ind, username) {
   let title = document.getElementById(`headline${ind}`).textContent.trim()
   let url = document.getElementById(`url${ind}`).href
+  console.log(username)
 
-  if (localStorage['Saved'] != null) {
-    let prev = JSON.parse(localStorage['Saved'])
+  if (localStorage[username] != null) {
+    let prev = JSON.parse(localStorage[username])
     prev[title] = url
-    localStorage['Saved'] = JSON.stringify(prev)
+    localStorage[username] = JSON.stringify(prev)
   } else {
     let store = { [title]: url }
     store = JSON.stringify(store)
-    localStorage['Saved'] = store
+    localStorage[username] = store
   }
 }
 
-function delete_article(ind) {
+//Error
+function delete_article(ind, username) {
   let article = document.getElementById(`article${ind}`).textContent.trim()
   console.log(article)
-  let data = JSON.parse(localStorage['Saved'])
+  let data = JSON.parse(localStorage[username])
   console.log(data)
   delete data[article]
   console.log(data)
-  localStorage['Saved'] = JSON.stringify(data)
-  get_saved_articles()
+  localStorage[username] = JSON.stringify(data)
+  get_saved_articles(username)
 }
 
-function get_saved_articles() {
+function get_saved_articles(username) {
   let saved_section = document.getElementById('saved-articles')
   if (saved_section != null) {
     document.getElementById('saved-articles').innerHTML = ''
-    if (localStorage['Saved'] != null) {
-      let articles = JSON.parse(localStorage['Saved'])
+    if (localStorage[username] != null) {
+      let articles = JSON.parse(localStorage[username])
       let count = 0
       for (article in articles) {
         saved_section.innerHTML += `<div class="list-group-item list-group-item-action d-flex justify-content-between">
         <a href=${articles[article]} class="card-link" id="article${count}">
           ${article}
         </a>
-        <button class="btn btn-danger custom-delete-btn" id="del-btn${count}" onclick="delete_article(${count++})">
+        <button class="btn btn-danger custom-delete-btn" id="del-btn${count}" onclick="delete_article(${count++}, '${username}')">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </div>`

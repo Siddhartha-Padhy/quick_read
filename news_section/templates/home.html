@@ -18,16 +18,20 @@
         <small class="text-muted">Source: {{headline.source.name}}</small>
       </p>
       <div class="d-flex" style="justify-content: space-between;">
-        <a class="btn btn-info" id="url{{headline.id}}" href="{{headline.url}}">
+        <a
+          class="btn btn-primary"
+          id="url{{headline.id}}"
+          href="{{headline.url}}"
+        >
           Read More
         </a>
-        <a
-          class="btn btn-success"
+        <button
+          class="btn btn-success custom-save-btn"
           id="save"
-          onclick="saveArticle('{{headline.id}}')"
+          onclick="saveArticle('{{headline.id}}','{{username}}')"
         >
-          Save
-        </a>
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </div>
