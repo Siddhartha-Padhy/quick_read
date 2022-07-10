@@ -5,7 +5,8 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import authenticate
 
 def format_news(data):
-    for article in data:
+    for id, article in enumerate(data):
+        article['id'] = id
         article['content'] = str(article['content']).split("... [")[0] + "..."
     return data
 

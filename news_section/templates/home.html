@@ -5,7 +5,9 @@
     <img class="card-img-top" alt="Card image cap" src="{{headline.image}}" />
     <div class="card-body">
       <div class="d-flex">
-        <h5 class="card-title news-headline">{{headline.title}}</h5>
+        <h5 class="card-title news-headline" id="headline{{headline.id}}">
+          {{headline.title}}
+        </h5>
       </div>
       <p class="card-text news-content">
         {{headline.content}}
@@ -16,8 +18,16 @@
         <small class="text-muted">Source: {{headline.source.name}}</small>
       </p>
       <div class="d-flex" style="justify-content: space-between;">
-        <a class="btn btn-info" href="{{headline.url}}">Read More</a>
-        <a class="btn btn-success">Save</a>
+        <a class="btn btn-info" id="url{{headline.id}}" href="{{headline.url}}">
+          Read More
+        </a>
+        <a
+          class="btn btn-success"
+          id="save"
+          onclick="saveArticle('{{headline.id}}')"
+        >
+          Save
+        </a>
       </div>
     </div>
   </div>

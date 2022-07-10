@@ -110,3 +110,9 @@
     align-items: center;
   }
 }
+
+.custom-delete-btn {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 70px;
+}
