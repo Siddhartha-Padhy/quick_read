@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #faf9f6;
+}
+
+.main-text {
+  color: #ffffff;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 100%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  text-align: center;
+}
+
+.logo img {
+  width: 10vh;
+  height: 10vh;
+  margin: 4px 4px;
+}
+
+.logo h3 {
+  color: #228b22;
+}
+
+.flex-style {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-card {
+  margin-top: 1%;
+  color: black;
+  max-width: 100%;
+}
+
+.signin-card input {
+  margin: 2% 2%;
+}
+
+.signin-card select {
+  margin: 2% 2%;
+}
+
+@media (min-width: 900px) {
+  .flex-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .signin-card {
+    margin-top: 1%;
+    color: black;
+    left: 25vw;
+  }
+}
+
+.brand-name {
+  color: rgb(217, 4, 4);
+  font-size: 1.3rem;
+  font-family: 'Arima', cursive;
+  font-weight: 800;
+}
+
+.custom-navbar {
+  margin-bottom: 3vh;
+}
+
+.news-headline {
+  font-family: 'Gulzar', serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.news-content {
+  font-family: 'Gentium Book Plus', serif;
+}
+
+.user-img {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 15px;
+  border: 4px solid gold;
+  padding: 3px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .user-data {
+    margin-left: 10vw;
+    font-family: 'Gulzar', serif;
+  }
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  .user-card {
+    align-items: center;
+  }
+  .user-data {
+    margin-top: 3vh;
+    font-family: 'Gulzar', serif;
+    align-items: center;
+  }
+}
+
+.custom-delete-btn {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 70px;
+}
+
+.custom-save-btn {
+  border-radius: 70px;
+}
+
+.ham-btn {
+  color: rgb(217, 4, 4);
+}
