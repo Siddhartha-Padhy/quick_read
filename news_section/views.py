@@ -58,13 +58,24 @@ def logout(request):
 @csrf_exempt
 @login_required
 def home(request):
+    username = str(request.user.username)
+    lang = str(request.user.last_name)
+    country = str(request.user.first_name)
     if(request.method == "POST"):
         query = str(request.POST.get('query'))
-        headlines = get_news(keyword=query)
+        headlines = get_news(keyword=query, lang=lang, country=country)
     else:
         headlines = get_headlines()
 
-    return render(request, 'home.html', {'headlines':headlines, 'active':'home', 'username': str(request.user.username)})
+    return render(request, 'home.html', {'headlines':headlines, 'active':'home', 'username': username})
+
+@login_required
+def defined_headline(request, topic):
+    username = str(request.user.username)
+    lang = str(request.user.last_name)
+    country = str(request.user.first_name)
+    headlines = get_headlines(topic=topic, lang=lang, country=country)
+    return render(request, 'home.html', {'headlines':headlines, 'active':'home', 'username': username})
 
 @login_required
 def profile(request):

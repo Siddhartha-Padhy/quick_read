@@ -124,3 +124,7 @@ body {
 .custom-save-btn {
   border-radius: 70px;
 }
+
+.ham-btn {
+  color: rgb(217, 4, 4);
+}

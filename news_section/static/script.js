@@ -1,7 +1,6 @@
 function saveArticle(ind, username) {
   let title = document.getElementById(`headline${ind}`).textContent.trim()
   let url = document.getElementById(`url${ind}`).href
-  console.log(username)
 
   if (localStorage[username] != null) {
     let prev = JSON.parse(localStorage[username])
@@ -17,11 +16,8 @@ function saveArticle(ind, username) {
 //Error
 function delete_article(ind, username) {
   let article = document.getElementById(`article${ind}`).textContent.trim()
-  console.log(article)
   let data = JSON.parse(localStorage[username])
-  console.log(data)
   delete data[article]
-  console.log(data)
   localStorage[username] = JSON.stringify(data)
   get_saved_articles(username)
 }
@@ -30,7 +26,7 @@ function get_saved_articles(username) {
   let saved_section = document.getElementById('saved-articles')
   if (saved_section != null) {
     document.getElementById('saved-articles').innerHTML = ''
-    if (localStorage[username] != null) {
+    if (localStorage[username].length > 3) {
       let articles = JSON.parse(localStorage[username])
       let count = 0
       for (article in articles) {
@@ -44,7 +40,7 @@ function get_saved_articles(username) {
       </div>`
       }
     } else {
-      saved_section.innerHTML += `<a href="#" class='list-group-item list-group-item-action'>Save some articles to see them here.</a>`
+      saved_section.innerHTML += `<p href="#" class='list-group-item list-group-item-action'>Save some articles to see them here.</p>`
     }
   }
 }

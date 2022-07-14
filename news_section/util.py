@@ -25,8 +25,12 @@ def get_news(keyword,lang='en',country='in'):
 # Get the news headlines
 # params:  lang, country: language and country of user
 # return:  data: news articles
-def get_headlines(lang='en',country='in'):
-    link = f"https://gnews.io/api/v4/top-headlines?lang={lang}&country={country}&token={API_TOKEN}"
+def get_headlines(topic='',lang='en',country='in'):
+    if len(topic)>0:
+        link = f"https://gnews.io/api/v4/top-headlines?topic={topic}&lang={lang}&country={country}&token={API_TOKEN}"
+    else:
+        link = f"https://gnews.io/api/v4/top-headlines?lang={lang}&country={country}&token={API_TOKEN}"
+
     data = requests.get(link)
     data = data.json()['articles']
     data = format_news(data)

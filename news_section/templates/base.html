@@ -28,6 +28,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
 
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/browser-icon.png' %}"
+    />
+
     <!-- Personal CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 
@@ -36,7 +42,7 @@
   <body onload="get_saved_articles('{{username}}')">
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="{% url 'home' %}">
         <span class="brand-name">QuickRead</span>
       </a>
       <button
@@ -48,7 +54,8 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa fa-bars class ham-btn" aria-hidden="true"></i>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -80,12 +87,22 @@
               </a>
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Breaking News</a>
-                <a class="dropdown-item" href="#">World</a>
-                <a class="dropdown-item" href="#">Nation</a>
-                <a class="dropdown-item" href="#">Business</a>
-                <a class="dropdown-item" href="#">Sports</a>
-                <a class="dropdown-item" href="#">Entertainment</a>
+                <a class="dropdown-item" href="{% url 'home' %}breaking-news">
+                  Breaking News
+                </a>
+                <a class="dropdown-item" href="{% url 'home' %}world">World</a>
+                <a class="dropdown-item" href="{% url 'home' %}nation">
+                  Nation
+                </a>
+                <a class="dropdown-item" href="{% url 'home' %}business">
+                  Business
+                </a>
+                <a class="dropdown-item" href="{% url 'home' %}sports">
+                  Sports
+                </a>
+                <a class="dropdown-item" href="{% url 'home' %}entertainment">
+                  Entertainment
+                </a>
               </div>
             </div>
           </li>
