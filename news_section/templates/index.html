@@ -55,6 +55,7 @@
             </p>
             {% endif %}
             <div class="flex-style">
+              {% csrf_token %}
               <form action="{% url 'index_page' %}" method="post">
                 <div class="form-group">
                   <input
@@ -117,7 +118,7 @@
 
                 <button
                   type="submit"
-                  class="btn btn-success"
+                  class="btn btn-success mt-5"
                   name="sign"
                   value="sign-in"
                 >
